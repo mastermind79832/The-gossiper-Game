@@ -4,16 +4,31 @@ namespace Ottamind.Gossiper
 {
     public class PlayerController : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
+        [SerializeField] private float m_MoveSpeed;
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-    }
+        private Vector3 m_Direction;
+		private void Start()
+		{
+			m_Direction = Vector3.zero;
+		}
+
+		void Update()
+		{
+			Input();
+			Movement();
+
+		}
+
+		private void Movement()
+		{
+			transform.position += m_MoveSpeed * m_Direction * Time.deltaTime;
+		}
+
+		private void Input()
+		{
+			m_Direction.x = UnityEngine.Input.GetAxis("Horizontal");
+			m_Direction.y = UnityEngine.Input.GetAxis("Vertical");
+		}
+
+	}
 }
