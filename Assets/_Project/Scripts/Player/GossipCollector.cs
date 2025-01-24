@@ -17,6 +17,10 @@ namespace Ottamind.Gossiper
 		[SerializeField] private List<Gossips> m_CapturedGossips;
 
 		[SerializeField] private Image m_ProgressBar;
+		private void Start()
+		{
+			m_Timer = 0;
+		}
 
 		private void Update()
 		{
@@ -27,22 +31,29 @@ namespace Ottamind.Gossiper
 				if (m_Timer >= m_CurrentGossiper.CaptureTime)
 				{
 					m_Timer = 0f;
-					m_ProgressBar.fillAmount = m_Timer / m_CurrentGossiper.CaptureTime;
+					UpdateProgressBar();
 					m_StartCapture = false;
 					m_CapturedGossips.Add(m_CurrentGossiper.Gossip);
 					m_CurrentGossiper.GetGossip();
-					m_CurrentGossiper = null; 
+					m_CurrentGossiper = null;
 				}
 
-				m_ProgressBar.fillAmount = m_Timer/m_CurrentGossiper.CaptureTime;
+				UpdateProgressBar();
 			}
 			else if(m_Timer >= 0)
 			{
 				m_Timer -= m_ReduceSpeed * Time.deltaTime;
-				m_ProgressBar.fillAmount = m_Timer / m_CurrentGossiper.CaptureTime;
+				UpdateProgressBar();
 			}
 
 			//progress bar update
+		}
+
+		private void UpdateProgressBar()
+		{
+			if (!m_CurrentGossiper)
+				return;
+			m_ProgressBar.fillAmount = m_Timer / m_CurrentGossiper.CaptureTime;
 		}
 
 		private void OnTriggerEnter2D(Collider2D collision)
