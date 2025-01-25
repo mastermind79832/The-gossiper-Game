@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,6 +79,9 @@ namespace Ottamind.Gossiper
 			m_StartCapture = false;
 		}
 
-		
+		internal void Detected()
+		{
+			m_CapturedGossips.RemoveAt(UnityEngine.Random.Range(0, m_CapturedGossips.Count));
+		}
 	}
 }
