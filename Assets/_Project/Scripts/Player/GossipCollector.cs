@@ -15,7 +15,7 @@ namespace Ottamind.Gossiper
 		private float m_Timer;
 		private Gossipers m_CurrentGossiper;
 
-		[SerializeField] private List<Gossips> m_CapturedGossips;
+		public List<Gossips> m_CapturedGossips;
 
 		[SerializeField] private Image m_ProgressBar;
 		private void Start()

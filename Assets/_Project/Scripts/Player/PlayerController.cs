@@ -6,6 +6,7 @@ namespace Ottamind.Gossiper
 {
     public class PlayerController : MonoSingletonGeneric<PlayerController>
     {
+		public GossipCollector gossipCollector;
         [SerializeField] private float m_MoveSpeed;
 
         private Vector3 m_Direction;
