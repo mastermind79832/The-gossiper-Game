@@ -80,12 +80,12 @@ namespace Ottamind.Gossiper
 			Vector2 dir = (m_PlayerController.transform.position - transform.position).normalized;
 
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 100f);
-			Debug.Log(dir);
+			//Debug.Log(dir);
 			Debug.DrawRay(transform.position,dir * 100f, Color.red);
 
 			if (hit.collider != null && hit.collider.GetComponent<PlayerController>())
 			{
-				Debug.Log($"hit {hit.collider.name}");
+				//Debug.Log($"hit {hit.collider.name}");
 				isHidden = false;
 			}
 

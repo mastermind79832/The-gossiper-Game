@@ -8,12 +8,17 @@ namespace Ottamind.Gossiper
     public struct GossipScore
     {
         public GossipType GossipType;
-        public float Score;
+        public int Score;
     }
 
     [CreateAssetMenu(fileName = "GossipTypeList", menuName = "Scriptable Objects/GossipTypeList")]
     public class GossipTypeList : ScriptableObject
     {
         public List<GossipScore> GossipScoreList;
+
+        public int GetScore(GossipType type)
+        {
+           return GossipScoreList.Find(x => x.GossipType == type).Score ;
+        }
     }
 }

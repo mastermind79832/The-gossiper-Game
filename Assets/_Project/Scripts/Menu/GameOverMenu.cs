@@ -18,7 +18,7 @@ namespace Ottamind.Gossiper
 
         public void GameOver(int blehCount, int okayCount, int niceCount, int juicyCount, int gain)
         {
-            GameOverCanvas.SetActive(false);
+            GameOverCanvas.SetActive(true);
 
             BlehCount.text = blehCount.ToString();
 			OkayCount.text = okayCount.ToString();
@@ -31,6 +31,8 @@ namespace Ottamind.Gossiper
             followers += gain;
 
 			PlayerPrefs.SetInt("Followers", followers);
+
+            Followers.text = followers.ToString();
         }
     }
 }
