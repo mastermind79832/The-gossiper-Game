@@ -15,10 +15,13 @@ namespace Ottamind.Gossiper
 		private bool m_IsCrouched;
 		public bool IsCrouched { get { return m_IsCrouched; } }
 
-		[SerializeField] private Animator m_Animator;	
+		[SerializeField] private Animator m_Animator;
+
+		public bool CanMove;
 
 		private void Start()
 		{
+			CanMove = false;
 			m_Direction = Vector3.zero;
 			m_IsCrouched = false;
 		}
@@ -55,6 +58,8 @@ namespace Ottamind.Gossiper
 
 		private void GetInput()
 		{
+			if (!CanMove)
+				return;
 			m_Direction.x = UnityEngine.Input.GetAxis("Horizontal");
 			m_Direction.y = UnityEngine.Input.GetAxis("Vertical");
 
