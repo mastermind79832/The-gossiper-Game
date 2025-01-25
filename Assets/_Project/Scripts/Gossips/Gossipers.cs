@@ -5,7 +5,7 @@ namespace Ottamind.Gossiper
     public class Gossipers : MonoBehaviour
     {
         [SerializeField] private Gossips m_Gossip;
-        public Gossips Gossip { get { return m_Gossip; } }
+        public Gossips Gossip { get { return m_Gossip; } set { m_Gossip = value; } }
 
         [SerializeField] private float m_CaptureTime;
         public float CaptureTime {  get { return m_CaptureTime; } }
