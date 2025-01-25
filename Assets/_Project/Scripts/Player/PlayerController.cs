@@ -15,6 +15,8 @@ namespace Ottamind.Gossiper
 		private bool m_IsCrouched;
 		public bool IsCrouched { get { return m_IsCrouched; } }
 
+		[SerializeField] private Animator m_Animator;	
+
 		private void Start()
 		{
 			m_Direction = Vector3.zero;
@@ -40,7 +42,15 @@ namespace Ottamind.Gossiper
 				m_Renderer.flipX = false;
 			}
 
+			if (m_Direction == Vector3.zero)
+				m_Animator.SetBool("IsMoveing", false);
+			else
+			{
+				m_Animator.SetBool("IsMoveing", true);
+			}
 			transform.position += m_MoveSpeed * Time.deltaTime * m_Direction;
+
+
 		}
 
 		private void GetInput()

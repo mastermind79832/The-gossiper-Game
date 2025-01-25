@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,19 +31,25 @@ namespace Ottamind.Gossiper
 		}
 
 		public void GetGossip( )
-        {
-            m_SpeechBubble.gameObject.SetActive(false); 
-            m_Gossip = null;
-        }
-
-		private void Update()
 		{
-			float dist = Mathf.Abs(Vector3.Distance(transform.position,m_PlayerController.transform.position));
+			m_SpeechBubble.transform.DOMove(m_PlayerController.transform.position, 1f);
+			Invoke(nameof(DelayDisable),1f);			
+			m_Gossip = null;
+		}
+
+		private void DelayDisable()
+		{
+			m_SpeechBubble.gameObject.SetActive(false);
+		}
+
+		private void FixedUpdate()
+		{
+			float dist = Mathf.Abs(Vector2.Distance(transform.position,m_PlayerController.transform.position));
 			Debug.Log(dist);
-			if ( dist <= m_DetectionRange)// && !CheckIfHidden())
+			if ( dist <= m_DetectionRange && !CheckIfHidden())
             {
 
-				m_Timer += m_DetectionSpeed * Time.deltaTime;
+				m_Timer += m_DetectionSpeed * Time.fixedDeltaTime;
 
 				if (m_Timer >= 10)
 				{
@@ -55,7 +62,7 @@ namespace Ottamind.Gossiper
 			}
 			else if (m_Timer >= 0)
 			{
-				m_Timer -= m_ReductionSpeed * Time.deltaTime;
+				m_Timer -= m_ReductionSpeed * Time.fixedDeltaTime;
 				UpdateProgressBar();
 			}
 
@@ -63,18 +70,20 @@ namespace Ottamind.Gossiper
 
 		private void Detected()
 		{
-			m_PlayerController.GetComponent<GossipCollector>().Detected();
+			//m_SpeechBubble.transform.DOMove(m_PlayerController.transform.position, 1f);
+			m_PlayerController.GetComponentInChildren<GossipCollector>().Detected();
 		}
 
 		private bool CheckIfHidden()
 		{
 			bool isHidden = true;
+			Vector2 dir = (m_PlayerController.transform.position - transform.position).normalized;
 
-			Debug.Log(m_PlayerController.transform.position);
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, (m_PlayerController.transform.position - transform.position).normalized,100f );
-			Debug.DrawRay(transform.position,m_PlayerController.transform.position - transform.position);
-			//Debug.Log(hit.point);
-			if (hit.collider != null && hit.collider.GetComponentInParent<PlayerController>())
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 100f);
+			Debug.Log(dir);
+			Debug.DrawRay(transform.position,dir * 100f, Color.red);
+
+			if (hit.collider != null && hit.collider.GetComponent<PlayerController>())
 			{
 				Debug.Log($"hit {hit.collider.name}");
 				isHidden = false;
