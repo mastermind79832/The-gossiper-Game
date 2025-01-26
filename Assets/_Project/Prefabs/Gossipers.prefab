@@ -55,9 +55,9 @@ MonoBehaviour:
   m_CaptureTime: 10
   m_SpeechBubble: {fileID: 2278527694708521538}
   m_ProgressBar: {fileID: 5327558127745109289}
-  m_DetectionRange: 5
+  m_DetectionRange: 10
   m_DetectionSpeed: 2
-  m_ReductionSpeed: 2
+  m_ReductionSpeed: 3
 --- !u!58 &8409496212572554558
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 21
   m_Sprite: {fileID: 7421730292534824296, guid: 216e0e4f8dccbe241bcb1bdc5b6e856f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -322,7 +322,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4945397104052250290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.55}
   m_LocalScale: {x: -0.029, y: -0.029, z: -0.029}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.491
   m_FillClockwise: 1
   m_FillOrigin: 1
   m_UseSpriteMesh: 0

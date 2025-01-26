@@ -72,6 +72,8 @@ namespace Ottamind.Gossiper
 		{
 			//m_SpeechBubble.transform.DOMove(m_PlayerController.transform.position, 1f);
 			m_PlayerController.GetComponentInChildren<GossipCollector>().Detected();
+			DelayDisable();
+			Gossip = null;
 		}
 
 		private bool CheckIfHidden()

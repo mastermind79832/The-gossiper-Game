@@ -84,6 +84,9 @@ namespace Ottamind.Gossiper
 		{
 			if (m_CapturedGossips.Count > 0)
 				m_CapturedGossips.RemoveAt(UnityEngine.Random.Range(0, m_CapturedGossips.Count));
+
+			m_Timer = 0;
+			UpdateProgressBar();
 			CameraShake.Instance.Shake(2, 0.5f);
 		}
 	}

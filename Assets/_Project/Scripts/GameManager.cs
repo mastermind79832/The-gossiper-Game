@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Ottamind.Gossiper
 {
@@ -45,7 +46,11 @@ namespace Ottamind.Gossiper
 				GameOver();
 				isTimerRun = false;
 			}
-			
+		}
+
+		public void Restast()
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
 
 		private void GameOver()
@@ -73,8 +78,6 @@ namespace Ottamind.Gossiper
 						case GossipType.Juicy: juicyCount++; break;
 				}
 			}
-
-
 
 			gameOverMenu.GameOver(blehCount, okayCount, niceCount, juicyCount, gain);
 		}
