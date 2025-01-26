@@ -15,3 +15,5 @@ MonoBehaviour:
   Gossips:
   - {fileID: 11400000, guid: 6379f3efc680f5645b636e91ea482ffb, type: 2}
   - {fileID: 11400000, guid: e217c240a1ea60e47971d20e9bdf0f08, type: 2}
+  - {fileID: 11400000, guid: a81942198bb05734b9ec4afef14fb687, type: 2}
+  - {fileID: 11400000, guid: 00048302f8e09184f81c6a2db326746e, type: 2}
