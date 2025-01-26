@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PRINCIPAL_WALKING-removebg-preview_0: 8516164899788767769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

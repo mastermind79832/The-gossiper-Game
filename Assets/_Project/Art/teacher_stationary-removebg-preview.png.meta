@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      teacher_stationary-removebg-preview_0: -4270063590794638069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

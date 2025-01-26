@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MAIN_CHARCTER_OTHER_SIDE_WALKING-removebg-preview_0: -1123863430616038333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

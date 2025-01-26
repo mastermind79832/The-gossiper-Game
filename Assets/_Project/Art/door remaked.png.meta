@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door remaked_0: 6980093042584193804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
